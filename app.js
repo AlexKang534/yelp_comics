@@ -59,7 +59,7 @@ app.use(express.static('public'));
 
 //Express Session Config
 app.use(expressSession({
-	secret: process.env.ES_SECRET | config.expressSession.secret,
+	secret: process.env.ES_SECRET || config.expressSession.secret,
 	resave: false,
 	saveUninitialized: false
 }));
