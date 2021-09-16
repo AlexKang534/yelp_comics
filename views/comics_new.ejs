@@ -1,0 +1,60 @@
+<%- include('partials/header') %>
+<div class=container>
+	<h1>Add New Comic</h1>
+<form action="/comics" method="post">
+  <div class="mb-3">
+    <label for="title" class="form-label">Title</label>
+    <input type="text" class="form-control" name="title" autofocus placeholder="e.g. Spiderman">
+  </div>
+    <div class="mb-3">
+    <label for="description" class="form-label">Description</label>
+    <input type="text" class="form-control" name="description">
+  </div>
+	 <div class="mb-3">
+    <label for="author" class="form-label">Author</label>
+    <input type="text" class="form-control" name="author" placeholder="e.g. Spiderman">
+  </div>
+	 <div class="mb-3">
+    <label for="publisher" class="form-label">Publisher</label>
+    <input type="text" class="form-control" name="publisher" placeholder="e.g. DC, Marvel, Vertigo, Shonen Jump, etc.">
+  </div>
+	 <div class="mb-3">
+    <label for="date" class="form-label">Date</label>
+    <input type="date" class="form-control" name="date">
+  </div>
+	 <div class="mb-3">
+    <label for="series" class="form-label">Series</label>
+    <input type="text" class="form-control" name="series">
+  </div>
+	 <div class="mb-3">
+    <label for="issue" class="form-label">Issue</label>
+    <input type="number" class="form-control" name="issue">
+  </div>
+	 <div class="mb-3">
+    <label for="genre" class="form-label">Genre</label>
+	<select class="form-control" id="genre" name="genre">
+		<option disabled selected>-- Choose Below --</option>
+		<option>Shonen</option>
+		<option>Slice of Life</option>
+		<option>Horror</option>
+		<option>Drama</option>
+		<option>Historical</option>
+		<option>Josei</option>
+		<option>Fantasy</option>
+		<option>Sports</option>
+	</select>
+  </div>
+  <div class="form-group form-check">
+       <input type="checkbox" class="form-check-input" name="color">
+ 		<label for="color">Color?</label>
+  </div>
+    <div class="mb-3">
+    <label for="image" >Link to Image</label>
+    <input type="text" class="form-control" name="image" placeholder="https://www.myimage.com">
+  </div>
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+</div>
+
+
+<%- include('partials/footer') %>
