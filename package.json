@@ -4,7 +4,7 @@
   "description": "",
   "main": "app.js",
   "scripts": {
-   	"script": "node app.js"
+   	"start": "node app.js"
   },
   "author": "Alex Kang",
   "license": "ISC",
