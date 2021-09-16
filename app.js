@@ -14,7 +14,7 @@ const expressSession = require('express-session');
 
 //Config Import
 try {
-	var config = require('./config')
+	var config = require('./config');
 } catch (e) {
 	console.log("Could not import config. This probably means you're not working locally");
 	console.log(e);
@@ -49,7 +49,7 @@ app.use(morgan('tiny'))
 try {
 mongoose.connect(config.db.connection, {useNewUrlParser: true});
 } catch (e) {
-	console.log("Could not connect using config. This probably means you're not working locally")
+	console.log("Could not connect using config. This probably means you're not working locally");
 	mongoose.connect(process.env.DB_CONNECTION_STRING, {useNewUrlParser:true})
 }
 
@@ -92,6 +92,6 @@ app.use('/', authRoutes);
 
 
 //Listen
-app.listen(process.env.port || 3000, () => {
+app.listen(process.env.PORT || 3000, () => {
 	console.log("Yelp is running")
 })
