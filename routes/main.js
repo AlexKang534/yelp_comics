@@ -4,7 +4,6 @@ const isLoggedIn = require('../utils/isLoggedIn');
 
 
 router.get('', (req, res) => {
-	res.redirect('/comics')
 	res.render('landing')
 })
 
