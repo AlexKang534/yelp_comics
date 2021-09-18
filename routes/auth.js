@@ -4,6 +4,7 @@ const User = require('../models/user');
 const passport = require('passport');
 
 
+
 //Sign up - new route
 router.get('/signup', (req, res) => {
 	res.render('signup')
@@ -31,7 +32,7 @@ router.post('/signup', async (req, res) => {
 
 //Login show form
 router.get('/login', (req, res) => {
-	res.render('login')
+	res.render('login');
 });
 
 

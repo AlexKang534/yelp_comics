@@ -5,13 +5,13 @@
 const express = require('express');
 const app = express();
 const bodyParser = require('body-parser');
+const expressSession = require('express-session');
 const flash = require('connect-flash');
 const methodOverride = require('method-override');
 const morgan = require('morgan')
 const mongoose = require('mongoose');
 const passport = require('passport'); 
 const LocalStrategy = require('passport-local').Strategy;
-const expressSession = require('express-session');
 
 //Config Import
 try {
@@ -81,9 +81,11 @@ passport.serializeUser(User.serializeUser()); // what data to be stored in the s
 passport.deserializeUser(User.deserializeUser()); //gets the user data from stored session
 passport.use(new LocalStrategy(User.authenticate())); // use local strategy 
 
-//current user middleware config
+//State config 
 app.use((req, res, next) => {
 	res.locals.user = req.user; 
+	res.locals.errorMessage = req.flash('error');
+	res.locals.successMessage = req.flash('success');
 	next();
 })
 
