@@ -69,6 +69,21 @@ router.get('/search', async (req, res) => {
 	}
 })
 
+//Genre
+router.get('/genre/:genre', async (req, res) => {
+	//Check if the given genre is valid
+	const validGenres = ['manga', 'shonen', 'josei', 'slice-of-life', 'drama', 'horror', 'sports', 'comedy', 'historical']; 
+	if (validGenres.includes(req.params.genre.toLowerCase())) {
+			//If yes, continue
+		const comics = await Comic.find({genre:req.params.genre}).exec();
+		res.render('comics', {comics});
+	} else { 
+		//if no, send an error 
+		res.send('Please Select a Valid Genre')
+	}	
+})
+
+
 //SHOW
 router.get('/:id', async (req, res) => {
 	try {
