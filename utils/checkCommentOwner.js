@@ -9,9 +9,11 @@ const checkCommentOwner = async (req, res, next) => {
 		if (comment.user.id.equals(req.user._id)) {
 			next();
 		} else {//if not, redirect back to show page
+			req.flash('error', "You don't have permissions to do that" )
 			res.redirect('back');
 		}
 	} else {//If not logged in, redirect to /login
+		req.flash('error', "You must be logged in to do that")
 		res.redirect('/login')	
 	}
 }

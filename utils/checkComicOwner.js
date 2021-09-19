@@ -9,9 +9,11 @@ const checkComicOwner = async (req, res, next) => {
 		if (comic.owner.id.equals(req.user._id)) {
 			next();
 		} else {//if not, redirect back to show page
+			req.flash('error', "You don't have permission for this");
 			res.redirect('back');
 		}
 	} else {//If not logged in, redirect to /login
+		req.flash('error', 'You must be logged in to do this');
 		res.redirect('/login')	
 	}
 }
