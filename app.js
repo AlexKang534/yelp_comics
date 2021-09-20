@@ -8,7 +8,7 @@ const bodyParser = require('body-parser');
 const expressSession = require('express-session');
 const flash = require('connect-flash');
 const methodOverride = require('method-override');
-const morgan = require('morgan')
+//const morgan = require('morgan')
 const mongoose = require('mongoose');
 const passport = require('passport'); 
 const LocalStrategy = require('passport-local').Strategy;
@@ -37,7 +37,7 @@ const User = require('./models/user');
 // DEVELOPMENT
 // ==============================
 // Morgan
-app.use(morgan('tiny'))
+//app.use(morgan('tiny'))
 
 //Seed the DB
 //const seed = require('./utils/seed');
@@ -57,6 +57,9 @@ mongoose.connect(config.db.connection, {useNewUrlParser: true});
 // Express Config
 app.set('view engine', 'ejs');
 app.use(express.static('public'));
+app.use(express.json({
+	type:['application/json', 'text/plain']
+}));
 
 //Express Session Config
 app.use(expressSession({
