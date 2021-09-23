@@ -104,26 +104,26 @@ router.post('/vote', isLoggedIn, async (req, res) => {
 		if (req.body.voteType === "up") { //Upvoting
 			comic.upvotes.push(req.user.username);
 			comic.save()
-			response.message = "Upvote!"
+			response = {message: "Upvoted!", code: 1}
 		} else if (req.body.voteType === "down") {
 			comic.downvotes.push(req.user.username);
 			comic.save()
-			response.message = "Downvote!"
+			response = {message: "Downvoted!", code: -1}
 		} else { //Error
-			response.message = "Error 1"
+			response = {message: "Error 1", code: "err"}
 		}
 	} else if (alreadyUpvoted >= 0) { //already upvoted
 		if (req.body.voteType === "up") {
 			comic.upvotes.splice(alreadyUpvoted, 1);
 			comic.save()
-			response.message = "Upvote removed"
+			response = {message: "Upvote Removed!", code: 0}
 		} else if (req.body.voteType ==="down") {
 			comic.upvotes.splice(alreadyUpvoted, 1);
 			comic.downvotes.push(req.user.username);
 			comic.save()
-			response.message = "Changed to downvote"
+			response = {message: "Downvoted!", code: -1}
 		} else { //error
-			response.message = "Error 2"	
+			response = {message:"Error 2", code: "err"}	
 		}
 		
 	} else if (alreadyDownvoted >= 0) { //already downvoted
@@ -131,20 +131,24 @@ router.post('/vote', isLoggedIn, async (req, res) => {
 			comic.downvotes.splice(alreadyDownvoted, 1);
 			comic.upvotes.push(req.user.username);
 			comic.save()
-			response.message = "Changed to upvote"
+			response = {message: "Upvoted!", code: 1}
 		} else if (req.body.voteType ==="down") {
 			comic.downvotes.splice(alreadyDownvoted, 1); 
 			comic.save()
-			response.message = "downvote removed"
+			response = {message: "Downvote Removed!", code: 0}
 		} else { //error
-			response.message = "Error 3" 
+			response = {message: "Error 3!", code: "err"}
 		}
 	} else { //ERror
-		response.message = "Error 4"
+		response = {message: "Error 4!", code: "err"}
 	}
 	
+	//UPdate SCore prior to sending
+	response.score = comic.upvotes.length - comic.downvotes.length; 
+	
+	
 	res.json(response);
-})
+});
 
 
 //SHOW
