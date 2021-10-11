@@ -1,70 +1,139 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  <link
+    rel="stylesheet"
+    href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+    crossorigin="anonymous"
+  />
+  <script
+    src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+    crossorigin="anonymous"
+  ></script>
   <div class="container-fluid">
-    <a class="navbar-brand" href="/comics"><img src="../img/bang_soundeffect.svg" alt="brand image" height ="40" width="40"></a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <a class="navbar-brand" href="/comics"
+      ><img
+        src="../img/bang_soundeffect.svg"
+        alt="brand image"
+        height="40"
+        width="40"
+    /></a>
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
       <span class="navbar-toggler-icon"></span>
     </button>
-	  
+
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="/comics">Comics</a>
+          <a class="nav-link active" aria-current="page" href="/comics"
+            >Comics</a
+          >
         </li>
         <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <a
+            class="nav-link dropdown-toggle"
+            href="#"
+            id="navbarDropdown"
+            role="button"
+            data-bs-toggle="dropdown"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >
             Genres
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
             <a class="dropdown-item" href="/comics/genre/manga">Manga</a>
             <a class="dropdown-item" href="/comics/genre/shonen">Shonen</a>
             <a class="dropdown-item" href="/comics/genre/josei">Josei</a>
-			<a class="dropdown-item" href="/comics/genre/slice-of-life">Slice-of-Life</a>
+            <a class="dropdown-item" href="/comics/genre/slice-of-life"
+              >Slice-of-Life</a
+            >
             <a class="dropdown-item" href="/comics/genre/drama">Drama</a>
             <a class="dropdown-item" href="/comics/genre/horror">Horror</a>
-			<a class="dropdown-item" href="/comics/genre/sports">Sports</a>
+            <a class="dropdown-item" href="/comics/genre/sports">Sports</a>
             <a class="dropdown-item" href="/comics/genre/comedy">Comedy</a>
-            <a class="dropdown-item" href="/comics/genre/historical">Historical</a>
+            <a class="dropdown-item" href="/comics/genre/historical"
+              >Historical</a
+            >
           </div>
         </li>
-			<% if (user) { %> 
-		  	<li class="nav-item">
-          		<a class="nav-link" aria-current="page" href="/comics/new">Add Comic</a>
-        	</li>
-		  	<% } %> 
-		  <% if(user) { %>
-			<li class="nav-item">
-          		<a class="nav-link active" aria-current="page" href="/logout">Logout</a>
-			</li>
-		  <% } else { %>
-		   	<li class="nav-item">
-          		<a class="nav-link active" aria-current="page" href="/login">Login</a>
-        	</li>
-		 	<li class="nav-item">
-          		<a class="nav-link active" aria-current="page" href="/signup">Signup</a>
-        	</li>
-		  <% }%>
+        <% if (user) { %>
+        <li class="nav-item">
+          <a class="nav-link" aria-current="page" href="/comics/new"
+            >Add Comic</a
+          >
+        </li>
+        <% } %> <% if(user) { %>
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="/logout"
+            >Logout</a
+          >
+        </li>
+        <% } else { %>
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="/login">Login</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="/signup"
+            >Signup</a
+          >
+        </li>
+        <% }%>
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="/name"
+            >About Me</a
+          >
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="/contact"
+            >Contact</a
+          >
+        </li>
       </ul>
       <form class="d-flex my-2 my-lg-0" action="/comics/search" method="get">
-        <input class="form-control me-2" type="search" placeholder="Search" name="term" aria-label="Search">
+        <input
+          class="form-control me-2"
+          type="search"
+          placeholder="Search"
+          name="term"
+          aria-label="Search"
+        />
         <button class="btn btn-outline-success" type="submit">Search</button>
       </form>
     </div>
   </div>
 </nav>
-<div class='container mt-2'>
-	<% if (successMessage && successMessage.length > 0) { %> 
-		<div class="alert alert-success alert-warning alert-dismissible fade show" role="alert">
-			<%= successMessage %>
-				<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-		</div>
-	<% } %>
-	<% if (errorMessage && errorMessage.length > 0) { %> 
-		<div class="alert alert-warning alert-dismissible fade show" role="alert">
-			<%= errorMessage %>
-				  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-		</div>
-	<% } %>
-	
+<div class="container mt-2">
+  <% if (successMessage && successMessage.length > 0) { %>
+  <div
+    class="alert alert-success alert-warning alert-dismissible fade show"
+    role="alert"
+  >
+    <%= successMessage %>
+    <button
+      type="button"
+      class="btn-close"
+      data-bs-dismiss="alert"
+      aria-label="Close"
+    ></button>
+  </div>
+  <% } %> <% if (errorMessage && errorMessage.length > 0) { %>
+  <div class="alert alert-warning alert-dismissible fade show" role="alert">
+    <%= errorMessage %>
+    <button
+      type="button"
+      class="btn-close"
+      data-bs-dismiss="alert"
+      aria-label="Close"
+    ></button>
+  </div>
+  <% } %>
 </div>

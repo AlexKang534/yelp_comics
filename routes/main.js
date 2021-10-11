@@ -10,4 +10,11 @@ router.get("/account", isLoggedIn, (req, res) => {
   res.render("account");
 });
 
+router.get("/contact", (req, res) => {
+  res.render("contact");
+});
+
+router.get("/name", (req, res) => {
+  res.render("name");
+});
 module.exports = router;
